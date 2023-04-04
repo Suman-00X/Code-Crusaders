@@ -1,13 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Login from './components/Login';
+import Register from './components/Register';
 
-
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <h1>Suman</h1>
-    </div>
-  );
-}
+      
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Login</Link>
+            </li>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route exact path="/"
+            elements={<Login />} />
+  
+          <Route path="/register"
+            elements={<Register/>} />
+            console.log("clicked");
+        </Routes>
+      </div>
+    </Router>
 
-export default App;
+</div>
+  );
+};
+
+export default App;
